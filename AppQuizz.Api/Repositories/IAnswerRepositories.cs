@@ -1,6 +1,6 @@
 ﻿namespace AppQuizz.Api.Repositories
 {
-    public class ComponentTypeRepositoryies
+    public interface IAnswerRepositories
     {
     }
 }
