@@ -1,5 +1,6 @@
 ﻿
 
+using AppQuizz.Api.Models.Views;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppQuizz.Api.Controllers
@@ -13,9 +14,9 @@ namespace AppQuizz.Api.Controllers
 
         }
         [HttpGet]
-        public List<Quizz> GetListQuizz()
+        public List<QuizzViewList> GetListQuizz()
         {
-            return 
+            return new List<QuizzViewList>();   
         }
     }
 }
