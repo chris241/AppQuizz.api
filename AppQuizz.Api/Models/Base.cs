@@ -1,7 +1,11 @@
-﻿namespace AppQuizz.Api.Models
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+
+namespace AppQuizz.Api.Models
 {
     public abstract class Base
     {
+        [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
     }
 }
