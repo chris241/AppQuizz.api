@@ -1,9 +1,16 @@
-﻿using AppQuizz.Api.Models;
+﻿using AppQuizz.Api.Configurations;
+using AppQuizz.Api.Models;
+using MongoDB.Driver;
 
 namespace AppQuizz.Api.Repositories
 {
     public class ComponentTypeRepositories : IComponentTypeRepositories
     {
+        private readonly IMongoCollection<ComponentType> collection;
+        public ComponentTypeRepositories(QuizzContextDB local)
+        {
+            collection = local.ComponentTypeContext;
+        }
         public Task DeleteAsync(ComponentType entity)
         {
             throw new NotImplementedException();
@@ -21,7 +28,7 @@ namespace AppQuizz.Api.Repositories
 
         public void Insert(ComponentType entity)
         {
-            throw new NotImplementedException();
+            collection.InsertOne(entity);
         }
 
         public Task UpdateAsync(string id, ComponentType entity)

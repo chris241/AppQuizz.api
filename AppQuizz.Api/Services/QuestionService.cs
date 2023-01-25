@@ -27,7 +27,8 @@ namespace AppQuizz.Api.Services
         }
         public void AddComponentType(ComponentTypeView componentTypeView)
         {
-            _componentTypeRepositories.Insert();
+            var componentType = this.MapCompo(componentTypeView);
+            _componentTypeRepositories.Insert(componentType);
         }
         private Questions MapQuestion(QuestionView questionView)
         {
@@ -37,6 +38,13 @@ namespace AppQuizz.Api.Services
                 CountResponse = questionView.CountResponse,
                 QuizzId = questionView.QuizzId,
                 ComponentId = questionView.ComponentId,
+            };
+        }
+        private ComponentType MapCompo(ComponentTypeView view)
+        {
+            return new ComponentType()
+            {
+                Name = view.Name,
             };
         }
     }

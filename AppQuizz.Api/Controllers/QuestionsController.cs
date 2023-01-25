@@ -37,7 +37,7 @@ namespace AppQuizz.Api.Controllers
         {
             try
             {
-                _questionService.AddComponent(componentTypeView);
+                _questionService.AddComponentType(componentTypeView);
                 return Ok();
             }
             catch

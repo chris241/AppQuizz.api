@@ -6,6 +6,6 @@ namespace AppQuizz.Api.Services
     public interface IQuestionService
     {
         void AddQuestion(QuestionView questionView);
-        void AddComponentType(ComponentTypeView  questionView)
+        void AddComponentType(ComponentTypeView questionView);
     }
 }
