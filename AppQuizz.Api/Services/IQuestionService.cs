@@ -8,5 +8,6 @@ namespace AppQuizz.Api.Services
         void AddQuestion(QuestionView questionView);
         void AddComponentType(ComponentTypeView questionView);
         void AddAnswer(AnswerView answerView);
+        Task<List<QuestionViewList>> ListQuestionVLByQuizzId(string quizzId);
     }
 }

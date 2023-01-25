@@ -26,9 +26,9 @@ namespace AppQuizz.Api.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Answers> GetByQuestionId(string questionId)
+        public async Task<List<Answers>> GetByQuestionId(string questionId)
         {
-            collection;
+           return await collection.Find(x => x.QuestionId == questionId).ToListAsync();
         }
 
         public void Insert(Answers entity)

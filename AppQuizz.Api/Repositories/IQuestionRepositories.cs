@@ -9,7 +9,7 @@ namespace AppQuizz.Api.Repositories
         Task DeleteByIdAsync(string id);
         Task DeleteAsync(Questions entity);
         Task<Questions> GetById(string id);
-        Task<List<Questions>> GetByIdQuizz(string idQuizz);
+        Task<List<Questions>> GetByQuizzId(string quizzId);
         Task<List<Questions>> GetAll();
     }
 }

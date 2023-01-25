@@ -32,9 +32,9 @@ namespace AppQuizz.Api.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<List<Questions>> GetByIdQuizz(string idQuizz)
+        public async Task<List<Questions>> GetByQuizzId(string quizzId)
         {
-            return await collection.Find(x => x.QuizzId == idQuizz).ToListAsync();
+            return await collection.Find(x => x.QuizzId == quizzId).ToListAsync();
         }
 
         public void Insert(Questions entity)

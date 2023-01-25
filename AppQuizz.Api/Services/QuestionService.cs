@@ -35,6 +35,18 @@ namespace AppQuizz.Api.Services
             var answer = this.MapAnswer(answerView);
             _answerRepositories.Insert(answer); ;
         }
+        public async Task<List<QuestionViewList>>ListQuestionVLByQuizzId(string quizzId)
+        {
+            var questionViewList = new List<QuestionViewList>();
+           var questions = await _questionRepositories.GetByQuizzId(quizzId);
+            foreach(var question in questions)
+            {
+                var componentType = await _componentTypeRepositories.GetById(question.ComponentId!);
+                var answer  = await _answerRepositories.GetByQuestionId(question.Id!);
+                questionViewList.Add(MapQuestionViewList(question, componentType, answer));
+            }
+            return questionViewList;
+        }
         private Questions MapQuestion(QuestionView questionView)
         {
             return new Questions()
@@ -64,7 +76,30 @@ namespace AppQuizz.Api.Services
                 Created = DateTime.Now
             };
         }
+        private QuestionViewList MapQuestionViewList(Questions question, ComponentType componentType,List<Answers> answers)
+        {
+            return new QuestionViewList()
+            {
+               CountResponse = question.CountResponse,
+               Title = question.Title,
+               ComponentName = componentType.Name,
+               AnswerViewLists = this.MapAnswerViewLis(answers) 
 
+            };
+        }
+        private List<AnswerViewList> MapAnswerViewLis(List<Answers> answers)
+        {
+            var answerList = new List<AnswerViewList>();
+            foreach (var answersItem in answers)
+            {
+                answerList.Add(new AnswerViewList()
+                {
+                    Id = answersItem.Id,
+                    Value = answersItem.Value,
+                });
+            }
+            return answerList;  
+        }
 
     }
 }

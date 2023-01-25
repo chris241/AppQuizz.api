@@ -14,11 +14,11 @@ namespace AppQuizz.Api.Controllers
         {
             _questionService = questionService;
         }
-        /* [HttpGet]
-         public List<QuestionViewList> ListQuestion()
+         [HttpGet]
+         public async Task<List<QuestionViewList>> ListQuestionVL(string quizzId)
          {
-
-         }*/
+            return await _questionService.ListQuestionVLByQuizzId(quizzId);
+         }
         [HttpPost]
         public ActionResult CreateQuestion([FromBody] QuestionView questionView)
         {

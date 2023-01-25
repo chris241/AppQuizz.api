@@ -21,9 +21,9 @@ namespace AppQuizz.Api.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<ComponentType> GetById(string id)
+        public async Task<ComponentType> GetById(string id)
         {
-            throw new NotImplementedException();
+            return await collection.Find(x => x.Id == id).FirstOrDefaultAsync();
         }
 
         public void Insert(ComponentType entity)
