@@ -39,7 +39,7 @@ namespace AppQuizz.Api.Repositories
 
         public void Insert(Questions entity)
         {
-            throw new NotImplementedException();
+            collection.InsertOne(entity);
         }
 
         public Task UpdateAsync(string id, Questions entity)

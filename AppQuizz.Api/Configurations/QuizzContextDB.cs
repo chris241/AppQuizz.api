@@ -15,6 +15,7 @@ namespace AppQuizz.Api.Configurations
         public IMongoCollection<Categories> CategorieContext => Db.GetCollection<Categories>("Categorie");
         public IMongoCollection<Quizz> QuizzContext => Db.GetCollection<Quizz>("Quizz");
         public IMongoCollection<Questions> QuestionContext => Db.GetCollection<Questions>("Question");
+        public IMongoCollection<ComponentType> ComponentTypeContext => Db.GetCollection<ComponentType>("ComponentType");
         public IMongoCollection<Answers> AnswerContext => Db.GetCollection<Answers>("Answer");
     }
 }

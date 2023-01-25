@@ -14,11 +14,37 @@ namespace AppQuizz.Api.Controllers
         {
             _questionService = questionService;
         }
-        [HttpGet]
-        public List<QuestionView> ListQuestion()
+        /* [HttpGet]
+         public List<QuestionViewList> ListQuestion()
+         {
+
+         }*/
+        [HttpPost]
+        public ActionResult CreateQuestion([FromBody] QuestionView questionView)
         {
-            
+            try
+            {
+                _questionService.AddQuestion(questionView);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
         [HttpPost]
+        public ActionResult CreateComponentType([FromBody] ComponentTypeView componentTypeView)
+        {
+            try
+            {
+                _questionService.AddComponent(componentTypeView);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
     }
 }

@@ -1,10 +1,9 @@
 ﻿namespace AppQuizz.Api.Models.Views
 {
-    public class QuestionView
+    public class QuestionViewList
     {
         public string? Title { get; set; }
+        public string? ComponentName { get; set; }
         public int? CountResponse { get; set; }
-        public string? QuizzId { get; set; }
-        public string? ComponentId { get; set; }
     }
 }
