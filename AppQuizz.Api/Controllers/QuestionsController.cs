@@ -45,6 +45,19 @@ namespace AppQuizz.Api.Controllers
                 return BadRequest();
             }
         }
+        [HttpPost]
+        public ActionResult CreateAnswer([FromBody] AnswerView answerView)
+        {
+            try
+            {
+                _questionService.AddAnswer(answerView);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
 
     }
 }

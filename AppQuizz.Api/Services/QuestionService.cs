@@ -30,6 +30,11 @@ namespace AppQuizz.Api.Services
             var componentType = this.MapCompo(componentTypeView);
             _componentTypeRepositories.Insert(componentType);
         }
+        public void AddAnswer(AnswerView answerView)
+        {
+            var answer = this.MapAnswer(answerView);
+            _answerRepositories.Insert(answer); ;
+        }
         private Questions MapQuestion(QuestionView questionView)
         {
             return new Questions()
@@ -38,6 +43,7 @@ namespace AppQuizz.Api.Services
                 CountResponse = questionView.CountResponse,
                 QuizzId = questionView.QuizzId,
                 ComponentId = questionView.ComponentId,
+                Created = DateTime.Now
             };
         }
         private ComponentType MapCompo(ComponentTypeView view)
@@ -45,7 +51,20 @@ namespace AppQuizz.Api.Services
             return new ComponentType()
             {
                 Name = view.Name,
+                Created = DateTime.Now
             };
         }
+        private Answers MapAnswer(AnswerView answerView)
+        {
+            return new Answers()
+            {
+                Value = answerView.Value,
+                QuestionId = answerView.QuestionId,
+                IsExact = answerView.IsExact,
+                Created = DateTime.Now
+            };
+        }
+
+
     }
 }

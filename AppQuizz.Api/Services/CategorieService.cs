@@ -45,6 +45,7 @@ namespace AppQuizz.Api.Services
             return new Categories()
             {
                 Name = entity.Name,
+                Created = DateTime.Now
             };
         }
         private List<CategoriesView> MapCategoriesVL(List<Categories> entities)

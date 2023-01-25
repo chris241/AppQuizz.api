@@ -62,7 +62,8 @@ namespace AppQuizz.Api.Services
                 CategorieId = quizz.CategorieId,
                 Title = quizz.Title,
                 Score = quizz.Score,
-                Descriptions = quizz.Descriptions
+                Descriptions = quizz.Descriptions,
+                Created = DateTime.Now
 
             };
         }

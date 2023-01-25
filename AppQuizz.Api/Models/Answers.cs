@@ -5,6 +5,6 @@
 
         public string? Value { get; set; }
         public bool? IsExact { get; set; }
-        public string? IdQuestion { get;set; }
+        public string? QuestionId { get;set; }
     }
 }
