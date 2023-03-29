@@ -8,6 +8,7 @@
         public int? Score { get; set; }
 
         public DateTime? CreatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         public int?  QuestionCount { get; set; }    
        // public Time Times {get; set;}
 
